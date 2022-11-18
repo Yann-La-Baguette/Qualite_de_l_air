@@ -1,4 +1,5 @@
 QT       += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,13 +11,19 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    waqi.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    waqi.h
 
 FORMS += \
     mainwindow.ui
+
+LIBS += -LC:\Qt\Tools\OpenSSL\Win_x64\bin -llibssl-1_1-x64
+LIBS += -LC:\Qt\Tools\OpenSSL\Win_x64\bin -llibcrypto-1_1-x64
+INCLUDEPATH += C:\Qt\Tools\OpenSSL\Win_x64\bin
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

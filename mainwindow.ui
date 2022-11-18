@@ -13,10 +13,107 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextBrowser" name="AirTextBrowser">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>50</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="AQIBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>260</y>
+      <width>261</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::UpDownArrows</enum>
+    </property>
+    <property name="prefix">
+     <string>AQI : </string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="Meteo">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>10</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Clermont-Ferrand</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Paris</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lyon</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Marseille</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Londres</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>New-york</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Meteo</sender>
+   <signal>activated(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>meteo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>346</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>52</x>
+     <y>80</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>clicked()</signal>
+  <slot>meteo()</slot>
+ </slots>
 </ui>
