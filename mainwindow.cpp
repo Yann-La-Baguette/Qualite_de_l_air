@@ -79,14 +79,16 @@ void MainWindow::meteo(){
 void MainWindow::station(){
 
     QString station;
+    QStringList Liste;
+    QString token;
 
     station = ui->stationLineEdit->text();
+    token = ui->token->text();
 
-    QString token = ui->token->text();
     air.set_url("https://api.waqi.info");
     QJsonDocument documentJSON = QJsonDocument::fromJson(air.get_station_json(station, token));
     //qDebug() << documentJSON;
-    QStringList Liste;
+
     Liste = air.get_station(station, token);
     ui->AirTextBrowser->setText(documentJSON.toJson());
 
@@ -98,9 +100,27 @@ void MainWindow::station(){
 }
 
 void MainWindow::choix_station(){
+    qDebug()<<ui->choixStationCombo->currentIndex();
+    ui->AQIBox->setValue(air.get_air_station(ui->choixStationCombo->currentIndex()));
 
-    ui->choixStationCombo->currentIndex();
+    int qualite_air = ui->AQIBox->value();
 
-
-
+    if(qualite_air<51){
+        ui->AQIBox->setStyleSheet("background-color: green");
+    }
+    else if(qualite_air>50 && qualite_air<101){
+        ui->AQIBox->setStyleSheet("background-color: yellow");
+    }
+    else if(qualite_air>100 && qualite_air<151){
+        ui->AQIBox->setStyleSheet("background-color: orange");
+    }
+    else if(qualite_air>150 && qualite_air<201){
+        ui->AQIBox->setStyleSheet("background-color: pink");
+    }
+    else if(qualite_air>200 && qualite_air<301){
+        ui->AQIBox->setStyleSheet("background-color: purple");
+    }
+    else if(qualite_air>300){
+        ui->AQIBox->setStyleSheet("background-color: red");
+    }
 }

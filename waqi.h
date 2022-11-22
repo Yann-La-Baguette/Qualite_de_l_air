@@ -20,14 +20,14 @@ public:
 
     QStringList get_station(QString ville, QString token);
     QByteArray get_station_json(QString ville, QString token);
-    double get_air_station(QString station, QString token);
+    double get_air_station(double station);
 
 private:
     QUrl qurl;
     QByteArray get(QUrl url);
     QNetworkAccessManager m;
+    QJsonObject objetJSON;
 
 };
 
 #endif // WAQI_H
-

@@ -151,6 +151,9 @@
       <height>25</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
     <property name="buttonSymbols">
      <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
@@ -164,7 +167,7 @@
    <widget class="QTextBrowser" name="AirTextBrowser">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>150</y>
       <width>411</width>
       <height>401</height>

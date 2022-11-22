@@ -74,7 +74,7 @@ QStringList waqi::get_station(QString station, QString token){
 
     QStringList Liste;
     QJsonDocument documentJSON = QJsonDocument::fromJson(get(url));
-    QJsonObject objetJSON = documentJSON.object();
+    objetJSON = documentJSON.object();
 
     qDebug() << objetJSON.value("data").toArray().count();
     QJsonValue dataJSON = objetJSON.value("data");
@@ -94,8 +94,7 @@ QByteArray waqi::get_station_json(QString station, QString token){
     return get(url);
 }
 
-double waqi::get_air_station(QString station, QString token){
-
+double waqi::get_air_station(double station){
+    return objetJSON.value("data").toArray().at(station).toObject().value("aqi").toString().toDouble();
 }
-
 
