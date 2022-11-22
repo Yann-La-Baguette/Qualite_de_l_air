@@ -30,3 +30,4 @@ private:
 };
 
 #endif // WAQI_H
+

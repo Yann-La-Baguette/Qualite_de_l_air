@@ -34,3 +34,4 @@ private slots:
     void choix_station();
 };
 #endif // MAINWINDOW_H
+

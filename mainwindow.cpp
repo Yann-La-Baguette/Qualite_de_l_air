@@ -101,4 +101,6 @@ void MainWindow::choix_station(){
 
     ui->choixStationCombo->currentIndex();
 
+
+
 }

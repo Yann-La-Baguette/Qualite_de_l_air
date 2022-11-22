@@ -164,7 +164,7 @@
    <widget class="QTextBrowser" name="AirTextBrowser">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>150</y>
       <width>411</width>
       <height>401</height>

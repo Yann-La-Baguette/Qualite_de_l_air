@@ -98,3 +98,4 @@ double waqi::get_air_station(QString station, QString token){
 
 }
 
+
