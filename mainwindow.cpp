@@ -99,6 +99,6 @@ void MainWindow::station(){
 
 void MainWindow::choix_station(){
 
-    ui->choixStationCombo->currentIndex()
+    ui->choixStationCombo->currentIndex();
 
 }
