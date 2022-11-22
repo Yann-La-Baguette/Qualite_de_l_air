@@ -1,7 +1,6 @@
 #include "waqi.h"
 
-waqi::waqi()
-{
+waqi::waqi(){
 
 }
 
@@ -61,8 +60,41 @@ double waqi::get_air(QString ville, QString token){
 QByteArray waqi::get_json_air(QString ville, QString token){
 
     QUrl url = qurl;
-    QString path = url.url() + "/feed/" + ville + "/?token=d9636de539c0cc32e3771e378fd51527b70526f1";
+    QString path = url.url() + "/feed/" + ville + "/?token=" + token;
     url = QUrl(path);
 
     return get(url);
 }
+
+
+QStringList waqi::get_station(QString station, QString token){
+    QUrl url = qurl;
+    QString path = url.url() + "/search/?keyword=" + station + "&token=" + token;
+    url = QUrl(path);
+
+    QStringList Liste;
+    QJsonDocument documentJSON = QJsonDocument::fromJson(get(url));
+    QJsonObject objetJSON = documentJSON.object();
+
+    qDebug() << objetJSON.value("data").toArray().count();
+    QJsonValue dataJSON = objetJSON.value("data");
+
+    for(int i=0 ; i < objetJSON.value("data").toArray().count() ; i++){
+        Liste.append(objetJSON.value("data").toArray().at(i).toObject().value("station").toObject().value("name").toString());
+    }
+    qDebug() << Liste;
+    return Liste;
+}
+
+QByteArray waqi::get_station_json(QString station, QString token){
+    QUrl url = qurl;
+    QString path = url.url() + "/search/?keyword=" + station + "&token=" + token;
+    url = QUrl(path);
+
+    return get(url);
+}
+
+double waqi::get_air_station(QString station, QString token){
+
+}
+

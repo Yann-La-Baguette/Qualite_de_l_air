@@ -8,6 +8,7 @@
 #include <QUrl>
 #include <QtGui>
 #include <QMessageBox>
+#include <QStringList>
 
 #include "waqi.h"
 
@@ -29,5 +30,7 @@ private:
 
 private slots:
     void meteo();
+    void station();
+    void choix_station();
 };
 #endif // MAINWINDOW_H

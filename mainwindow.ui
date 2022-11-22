@@ -6,79 +6,196 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>886</width>
+    <height>618</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextBrowser" name="AirTextBrowser">
+   <property name="minimumSize">
+    <size>
+     <width>800</width>
+     <height>500</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>5000000</width>
+     <height>5000000</height>
+    </size>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>50</y>
-      <width>256</width>
-      <height>192</height>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>71</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>801</width>
+      <height>501</height>
+     </size>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="ville">
+     <attribute name="title">
+      <string>Ville</string>
+     </attribute>
+     <widget class="QComboBox" name="Ville">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>797</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Clermont-Ferrand</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Paris</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Lyon</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Marseille</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Londres</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New-york</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="station">
+     <attribute name="title">
+      <string>Station</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>781</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="stationLineEdit">
+         <property name="maximumSize">
+          <size>
+           <width>350</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="rechercher">
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Rechercher</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="choixStationCombo"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
    <widget class="QDoubleSpinBox" name="AQIBox">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>260</y>
-      <width>261</width>
+      <x>20</x>
+      <y>120</y>
+      <width>799</width>
       <height>25</height>
      </rect>
     </property>
     <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::UpDownArrows</enum>
+     <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
     <property name="prefix">
      <string>AQI : </string>
     </property>
+    <property name="maximum">
+     <double>9999999999.000000000000000</double>
+    </property>
    </widget>
-   <widget class="QComboBox" name="Meteo">
+   <widget class="QTextBrowser" name="AirTextBrowser">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>10</y>
-      <width>121</width>
-      <height>24</height>
+      <x>20</x>
+      <y>150</y>
+      <width>411</width>
+      <height>401</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Clermont-Ferrand</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Paris</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lyon</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Marseille</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Londres</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New-york</string>
-     </property>
-    </item>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>841</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="tokenLabel">
+       <property name="text">
+        <string>Token</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="token">
+       <property name="text">
+        <string>d9636de539c0cc32e3771e378fd51527b70526f1</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -86,7 +203,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>886</width>
      <height>21</height>
     </rect>
    </property>
@@ -96,14 +213,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>Meteo</sender>
+   <sender>Ville</sender>
    <signal>activated(int)</signal>
    <receiver>MainWindow</receiver>
    <slot>meteo()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>346</x>
-     <y>47</y>
+     <x>59</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
      <x>52</x>
@@ -111,9 +228,44 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>rechercher</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>station()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>403</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>885</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>choixStationCombo</sender>
+   <signal>activated(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>choix_station()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>547</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>980</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>clicked()</signal>
+  <signal>activated()</signal>
   <slot>meteo()</slot>
+  <slot>station()</slot>
+  <slot>choix_station()</slot>
  </slots>
 </ui>

@@ -17,7 +17,7 @@ void MainWindow::meteo(){
 
     QString ville;
 
-    switch(ui->Meteo->currentIndex()){
+    switch(ui->Ville->currentIndex()){
         case 0:
             ville = "clermont-ferrand";
             break;
@@ -44,13 +44,61 @@ void MainWindow::meteo(){
     }
 
 
-
+    QString token = ui->token->text();
     air.set_url("https://api.waqi.info");
-    QJsonDocument documentJSON = QJsonDocument::fromJson(air.get_json_air(ville, "d9636de539c0cc32e3771e378fd51527b70526f1"));
+    QJsonDocument documentJSON = QJsonDocument::fromJson(air.get_json_air(ville, token));
     //qDebug() << documentJSON;
-    double qualite_air = air.get_air(ville, "d9636de539c0cc32e3771e378fd51527b70526f1");
+    double qualite_air = air.get_air(ville, token);
     ui->AirTextBrowser->setText(documentJSON.toJson());
     ui->AQIBox->setValue(qualite_air);
 
-    ui->Meteo->setEnabled(true);
+
+    if(qualite_air<51){
+        ui->AQIBox->setStyleSheet("background-color: green");
+    }
+    else if(qualite_air>50 && qualite_air<101){
+        ui->AQIBox->setStyleSheet("background-color: yellow");
+    }
+    else if(qualite_air>100 && qualite_air<151){
+        ui->AQIBox->setStyleSheet("background-color: orange");
+    }
+    else if(qualite_air>150 && qualite_air<201){
+        ui->AQIBox->setStyleSheet("background-color: pink");
+    }
+    else if(qualite_air>200 && qualite_air<301){
+        ui->AQIBox->setStyleSheet("background-color: purple");
+    }
+    else if(qualite_air>300){
+        ui->AQIBox->setStyleSheet("background-color: red");
+    }
+
+
+    ui->Ville->setEnabled(true);
+}
+
+void MainWindow::station(){
+
+    QString station;
+
+    station = ui->stationLineEdit->text();
+
+    QString token = ui->token->text();
+    air.set_url("https://api.waqi.info");
+    QJsonDocument documentJSON = QJsonDocument::fromJson(air.get_station_json(station, token));
+    //qDebug() << documentJSON;
+    QStringList Liste;
+    Liste = air.get_station(station, token);
+    ui->AirTextBrowser->setText(documentJSON.toJson());
+
+    ui->choixStationCombo->clear();
+
+    for(int i=0 ; i<Liste.size() ; i++){
+        ui->choixStationCombo->addItem(Liste[i]);
+    }
+}
+
+void MainWindow::choix_station(){
+
+    ui->choixStationCombo->currentIndex()
+
 }
