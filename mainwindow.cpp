@@ -76,6 +76,7 @@ void MainWindow::meteo(){
     ui->Ville->setEnabled(true);
 }
 
+
 void MainWindow::station(){
 
     QString station;
